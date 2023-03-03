@@ -27,6 +27,7 @@ func (s *server) AddRoutes() (http.Handler, error) {
 	s.MiddleWare(mux)
 	mux.Handle("/ping", s.MiddleWare(http.HandlerFunc(s.handlePing)))
 	mux.Handle("/home", s.MiddleWare(http.HandlerFunc(s.handleHome)))
+	// mux.Handle("/create", s.MiddleWare(http.HandlerFunc(s.handleCreate)))
 	s.MiddleWare(mux)
 
 	return mux, nil

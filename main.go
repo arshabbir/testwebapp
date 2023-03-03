@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	conf := &config.Config{Addr: ":8080"}
+	conf := &config.Config{Addr: ":8080", TemplatePath: "./templates/"}
 	webapp := app.NewApp(conf)
 
 	if err := webapp.Start(); err != nil {
