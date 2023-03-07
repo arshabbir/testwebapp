@@ -20,6 +20,7 @@ func render(w http.ResponseWriter, r *http.Request, tName string, data *models.T
 		apiError := utils.ApiError{Code: http.StatusInternalServerError, Message: "unable to parse the files"}
 		json.NewEncoder(w).Encode(*&apiError)
 	}
+	data.IP = getIPFromContext(r.Context())
 	err = parsedFile.Execute(w, data)
 	if err != nil {
 		apiError := utils.ApiError{Code: http.StatusInternalServerError, Message: "unable to parse the files"}
